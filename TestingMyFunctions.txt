@@ -1,0 +1,69 @@
+> mtrx <- matrix(1:4, 2, 2)
+> my_mtrx <- makeCacheMatrix(mtrx)
+> my_mtrx$get()
+     [,1] [,2]
+[1,]    1    3
+[2,]    2    4
+> my_mtrx$get_inv()
+NULL
+> cacheSolve(my_mtrx)
+     [,1] [,2]
+[1,]   -2  1.5
+[2,]    1 -0.5
+> cacheSolve(my_mtrx)
+Inverse already calculated; getting cached matrix
+     [,1] [,2]
+[1,]   -2  1.5
+[2,]    1 -0.5
+
+> my_mtrx$set(matrix(c(4, 2, 7, 6), 2, 2))
+> my_mtrx$get()
+     [,1] [,2]
+[1,]    4    7
+[2,]    2    6
+> my_mtrx$get_inv()
+NULL
+> cacheSolve(my_mtrx)
+     [,1] [,2]
+[1,]  0.6 -0.7
+[2,] -0.2  0.4
+> cacheSolve(my_mtrx)
+Inverse already calculated; getting cached matrix
+     [,1] [,2]
+[1,]  0.6 -0.7
+[2,] -0.2  0.4
+
+> my_mtrx$set(matrix(c(2, 2, 1, 4), 2, 2))
+> my_mtrx$get()
+     [,1] [,2]
+[1,]    2    1
+[2,]    2    4
+> my_mtrx$get_inv()
+NULL
+> cacheSolve(my_mtrx)
+           [,1]       [,2]
+[1,]  0.6666667 -0.1666667
+[2,] -0.3333333  0.3333333
+> cacheSolve(my_mtrx)
+Inverse already calculated; getting cached matrix
+           [,1]       [,2]
+[1,]  0.6666667 -0.1666667
+[2,] -0.3333333  0.3333333
+
+> my_mtrx$set(matrix(c(-3, 5, 1, 0), 2, 2))
+> my_mtrx$get()
+     [,1] [,2]
+[1,]   -3    1
+[2,]    5    0
+> my_mtrx$get_inv()
+NULL
+> cacheSolve(my_mtrx)
+     [,1] [,2]
+[1,]    0  0.2
+[2,]    1  0.6
+> cacheSolve(my_mtrx)
+Inverse already calculated; getting cached matrix
+     [,1] [,2]
+[1,]    0  0.2
+[2,]    1  0.6
+> 
